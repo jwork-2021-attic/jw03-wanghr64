@@ -1,0 +1,14 @@
+@startuml MyClassLoader
+
+class ClassLoader {}
+
+class MyClassLoader {
+    +byte[] getBytesFromClassName(String name)
+    -Map<String, byte[]> mClassBytes
+    #Class<?> findClass(String name)
+    -byte[] loadClassFromFile(String fileName)
+}
+
+MyClassLoader --|> ClassLoader
+
+@enduml
