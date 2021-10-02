@@ -50,7 +50,7 @@ public class MyClassLoader extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
         File f = new File("./S191220107/pics/original.png");
-        File f1 = new File("./S191220107/pics/bubble.png");
+        File f1 = new File("./S191220107/pics/quick.png");
         File f2 = new File("./S191220107/pics/heap.png");
         f1.createNewFile();
         f2.createNewFile();
