@@ -40,7 +40,11 @@ public class SteganographyEncoder {
         return encode(bytes);
     }
 
-    public byte[] decodeByteArray(){
+    public BufferedImage encodeByteArray(byte[] bytes) {
+        return encode(bytes);
+    }
+
+    public byte[] decodeByteArray() {
         return decode();
     }
 
