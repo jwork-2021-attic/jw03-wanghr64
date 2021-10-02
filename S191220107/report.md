@@ -67,3 +67,14 @@ protected Class<?> findClass(String name) throws ClassNotFoundException {
 
 阅读`SteganographyEncoder`的类定义，可以看到`encode()`函数已经实现了我们想要的功能：即字节码作为参数，图像作为返回值。但是该函数是定义为`private`的私有函数（且不能继承），因此新定义了公共接口函数`BufferedImage encodeByteArray(byte[] bytes)`，其中直接调用`encode()`函数。
 
+### 编码后的图片
+
+快速排序类`QuickSorter`的隐写术图片如下：
+
+[![4q9TxA.png](https://z3.ax1x.com/2021/10/02/4q9TxA.png)](https://imgtu.com/i/4q9TxA)
+[链接](https://z3.ax1x.com/2021/10/02/4q9TxA.png)
+
+堆排序类`HeapSorter`的隐写术图片如下：
+
+[![4q9zGQ.png](https://z3.ax1x.com/2021/10/02/4q9zGQ.png)](https://imgtu.com/i/4q9zGQ)
+[链接](https://z3.ax1x.com/2021/10/02/4q9zGQ.png)
