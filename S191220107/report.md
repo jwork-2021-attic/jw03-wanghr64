@@ -43,3 +43,27 @@
 ### 自定义类加载器
 
 定义类`MyClassLoader`的UML图如下：
+
+[![4qSwLV.png](https://z3.ax1x.com/2021/10/02/4qSwLV.png)](https://imgtu.com/i/4qSwLV)
+
+在父类`ClassLoader`的基础上：
+- 新添加了属性`Map<String, byte[]> mClassBytes`，用于存放**类名**和**字节码**的字典
+- 重载了`findClass()`函数，自定义了类加载的行为。
+- 添加了公共接口`byte[] getBytesFromClassName()`，通过传入类名的参数，得到相应的字节码
+
+关键代码，即重载过的`findClass()`函数如下：
+
+```java
+protected Class<?> findClass(String name) throws ClassNotFoundException {
+  byte[] bytes = loadClassFromFile(name);
+  mClassBytes.put(name, bytes);
+  return this.defineClass(name, bytes, 0, bytes.length);
+}
+```
+
+与一般类加载器的不同之处，即对字典`mClassBytes`的更新。
+
+### 编码器的使用
+
+阅读`SteganographyEncoder`的类定义，可以看到`encode()`函数已经实现了我们想要的功能：即字节码作为参数，图像作为返回值。但是该函数是定义为`private`的私有函数（且不能继承），因此新定义了公共接口函数`BufferedImage encodeByteArray(byte[] bytes)`，其中直接调用`encode()`函数。
+
