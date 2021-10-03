@@ -83,7 +83,7 @@ protected Class<?> findClass(String name) throws ClassNotFoundException {
 
 使用的图床应该不会二压图片（毕竟主动给出了一个压缩过的图片链接，那么默认的应该就没有经过压缩），因此就和示例代码给出的一样，使用URL而不是本地路径读取隐写术图。
 
-修改的代码如下：
+修改`example/Scene.java`代码如下：
 
 ```java
 /*
@@ -113,3 +113,30 @@ SteganographyClassLoader loader = new SteganographyClassLoader(
 #### 堆排序`HeapSorter`
 
 [![asciicast](https://asciinema.org/a/PFwpg36CRARh4rVPzuSbyuxvj.svg)](https://asciinema.org/a/PFwpg36CRARh4rVPzuSbyuxvj)
+
+## 解码其他同学的隐写术图
+
+使用了**EnxIII**同学（从GitHub classroom首页随机抽取的“幸运同学”，身份未知）的图片`example.QuickSorter.png`和`example.SelectSorter.png`。由于不确定`raw.githubusercontent.com`中的图片是否有二压（应该没有，但是访问效率由于众所周知的原因可能也不太理想），就使用本地文件进行加载。
+
+修改`example/Scene.java`代码如下：
+
+```java
+// file1
+SteganographyClassLoader loader = new SteganographyClassLoader(new File("./peer_pics/example.QuickSorter.png"));
+
+// file2
+// SteganographyClassLoader loader = new SteganographyClassLoader(new
+// File("./peer_pics/example.QuickSorter.png"));
+```
+
+即使用`File`对象初始化`SteganographyClassLoader`类。而`SteganographyClassLoader`类只提供了使用`URL`的构造函数，因此这里也新定义了使用`File`的构造函数。这里不再赘述。
+
+### asciinema 动画
+
+#### 快速排序
+
+[![asciicast](https://asciinema.org/a/rVStRfJsaG45c0vcsnO5a9DFI.svg)](https://asciinema.org/a/rVStRfJsaG45c0vcsnO5a9DFI)
+
+#### 选择排序
+
+[![asciicast](https://asciinema.org/a/T4ldMZfRuK8KCsqMGIMBkXsqS.svg)](https://asciinema.org/a/T4ldMZfRuK8KCsqMGIMBkXsqS)
