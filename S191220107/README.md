@@ -78,3 +78,38 @@ protected Class<?> findClass(String name) throws ClassNotFoundException {
 
 [![4q9zGQ.png](https://z3.ax1x.com/2021/10/02/4q9zGQ.png)](https://imgtu.com/i/4q9zGQ)
 [链接](https://z3.ax1x.com/2021/10/02/4q9zGQ.png)
+
+## 解码自己的隐写术图
+
+使用的图床应该不会二压图片（毕竟主动给出了一个压缩过的图片链接，那么默认的应该就没有经过压缩），因此就和示例代码给出的一样，使用URL而不是本地路径读取隐写术图。
+
+修改的代码如下：
+
+```java
+/*
+ * original SteganographyClassLoader loader = new SteganographyClassLoader( new
+ * URL("https://cdn.njuics.cn/example.BubbleSorter.png"));
+ */
+
+// QuickSorter
+SteganographyClassLoader loader = new SteganographyClassLoader(
+  new URL("https://z3.ax1x.com/2021/10/02/4q9TxA.png"));
+
+ // HeapSorter
+ /*
+  * SteganographyClassLoader loader = new SteganographyClassLoader( new
+  * URL("https://z3.ax1x.com/2021/10/02/4q9zGQ.png"));
+  */
+```
+
+即只修改了传入`SteganographyClassLoader`构造函数的`URL`参数。
+
+### asciinema 动画
+
+#### 快速排序`QuickSorter`
+
+[![asciicast](https://asciinema.org/a/5EBPIE1qrHum7BFovkaDFwhmw.svg)](https://asciinema.org/a/5EBPIE1qrHum7BFovkaDFwhmw)
+
+#### 堆排序`HeapSorter`
+
+[![asciicast](https://asciinema.org/a/PFwpg36CRARh4rVPzuSbyuxvj.svg)](https://asciinema.org/a/PFwpg36CRARh4rVPzuSbyuxvj)
