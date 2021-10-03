@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.io.File;
 
 import example.classloader.SteganographyClassLoader;
 
@@ -32,9 +33,15 @@ public class Scene {
         // new URL("https://z3.ax1x.com/2021/10/02/4q9TxA.png"));
 
         // HeapSorter
+        // SteganographyClassLoader loader = new SteganographyClassLoader(
+        // new URL("https://z3.ax1x.com/2021/10/02/4q9zGQ.png"));
 
-        SteganographyClassLoader loader = new SteganographyClassLoader(
-                new URL("https://z3.ax1x.com/2021/10/02/4q9zGQ.png"));
+        // file1
+        // SteganographyClassLoader loader = new SteganographyClassLoader(new
+        // File("./peer_pics/example.QuickSorter.png"));
+
+        // file2
+        SteganographyClassLoader loader = new SteganographyClassLoader(new File("./peer_pics/example.QuickSorter.png"));
 
         Class c = loader.loadClass("example.BubbleSorter");
 
